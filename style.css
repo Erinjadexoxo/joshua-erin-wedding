@@ -1,0 +1,469 @@
+/* =================================
+   JOSHUA & ERIN
+   Luxury Editorial Invitation
+   Prototype 0.1
+================================= */
+
+
+/* ---------- GLOBAL ---------- */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #F8F6F2;
+    color: #494949;
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
+
+h1,
+h2,
+h3 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+
+p {
+    line-height: 1.8;
+}
+
+
+/* ---------- OPENING SCREEN ---------- */
+
+#opening-screen {
+
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+
+}
+
+
+.wood-background {
+
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+    linear-gradient(
+    rgba(80,60,40,.25),
+    rgba(80,60,40,.25)
+    ),
+    url("assets/images/wood-background.jpg");
+
+    background-size: cover;
+    background-position: center;
+
+}
+
+
+/* ---------- ENVELOPE ---------- */
+
+
+.envelope {
+
+    width: 340px;
+    height: 230px;
+
+    background: #F7F1E7;
+
+    position: relative;
+
+    box-shadow:
+    0 25px 50px rgba(0,0,0,.18);
+
+}
+
+
+.flap {
+
+    position: absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:50%;
+
+    background:#EEE5D8;
+
+    clip-path:
+    polygon(
+    0 0,
+    100% 0,
+    50% 100%
+    );
+
+}
+
+
+.letter-preview {
+
+    position:absolute;
+
+    width:80%;
+    height:120px;
+
+    background:#FAF8F3;
+
+    left:10%;
+    bottom:20px;
+
+}
+
+
+
+/* ---------- WAX SEAL ---------- */
+
+
+#wax-seal {
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:#A9B8A5;
+
+    left:50%;
+    top:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+
+    font-family:
+    "Cormorant Garamond",
+    serif;
+
+    font-size:28px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 8px 20px rgba(0,0,0,.2);
+
+}
+
+
+.tap-text {
+
+    color:white;
+
+    margin-top:35px;
+
+    letter-spacing:2px;
+
+    font-size:13px;
+
+}
+
+
+
+/* ---------- INVITATION ---------- */
+
+
+#invitation {
+
+    display:none;
+
+    background:
+    url("assets/images/paper-texture.png");
+
+    min-height:100vh;
+
+}
+
+
+
+section {
+
+    max-width:1000px;
+
+    margin:auto;
+
+    padding:100px 40px;
+
+}
+
+
+
+/* ---------- HERO ---------- */
+
+
+.hero {
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:70px;
+
+}
+
+
+.hero h1 {
+
+    font-size:90px;
+
+    line-height:.9;
+
+}
+
+
+.hero h1 span {
+
+    display:block;
+
+    font-size:55px;
+
+}
+
+
+
+.eyebrow {
+
+    text-transform:uppercase;
+
+    letter-spacing:4px;
+
+    font-size:12px;
+
+}
+
+
+.date {
+
+    font-size:22px;
+
+}
+
+
+
+.hero-image img {
+
+    width:100%;
+
+    max-width:420px;
+
+}
+
+
+
+/* ---------- CONTENT ---------- */
+
+
+.content-section {
+
+    text-align:center;
+
+}
+
+
+.content-section h2 {
+
+    font-size:55px;
+
+    margin-bottom:50px;
+
+}
+
+
+.details-grid {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(2,1fr);
+
+    gap:40px;
+
+}
+
+
+.details-grid h3 {
+
+    font-size:25px;
+
+}
+
+
+
+/* ---------- MAP ---------- */
+
+
+.map-placeholder {
+
+    height:350px;
+
+    background:#eee;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin-bottom:30px;
+
+}
+
+
+
+#map-button {
+
+    text-decoration:none;
+
+    color:#494949;
+
+}
+
+
+
+/* ---------- RSVP ---------- */
+
+
+form {
+
+    max-width:500px;
+
+    margin:auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+
+input,
+select,
+textarea {
+
+    padding:15px;
+
+    border:
+
+    1px solid #ddd;
+
+    background:white;
+
+    font-family:inherit;
+
+}
+
+
+textarea {
+
+    height:120px;
+
+}
+
+
+button {
+
+    padding:16px;
+
+    background:#A9B8A5;
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+}
+
+
+
+/* ---------- CLOSING ---------- */
+
+
+.closing {
+
+    text-align:center;
+
+    padding-bottom:150px;
+
+}
+
+
+.closing h2 {
+
+    font-size:70px;
+
+}
+
+
+
+/* ---------- MOBILE ---------- */
+
+
+@media(max-width:768px){
+
+
+.hero {
+
+    grid-template-columns:1fr;
+
+    text-align:center;
+
+}
+
+
+.hero h1 {
+
+    font-size:65px;
+
+}
+
+
+.details-grid {
+
+    grid-template-columns:1fr;
+
+}
+
+
+section {
+
+    padding:70px 25px;
+
+}
+
+
+.envelope {
+
+    width:290px;
+
+}
+
+
+}
