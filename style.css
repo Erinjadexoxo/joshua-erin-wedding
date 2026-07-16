@@ -1,469 +1,308 @@
-/* =================================
-   JOSHUA & ERIN
-   Luxury Editorial Invitation
-   Prototype 0.1
-================================= */
-
-
-/* ---------- GLOBAL ---------- */
-
 * {
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+:root{
+  --ivory:#f7f2ea;
+  --paper:#fbf7f0;
+  --sage:#9aa18a;
+  --champagne:#d7c3a3;
+  --ink:#2f2b28;
 }
 
-body {
-    margin: 0;
-    background: #F8F6F2;
-    color: #494949;
-    font-family: "Inter", sans-serif;
-    font-weight: 300;
+body{
+  font-family: 'Inter', sans-serif;
+  color: var(--ink);
+  background: var(--ivory);
+  overflow-x: hidden;
 }
 
+/* Opening Scene */
 
-h1,
-h2,
-h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-weight: 400;
-    letter-spacing: 1px;
+.opening{
+  height: 100vh;
 }
 
-
-p {
-    line-height: 1.8;
-}
-
-
-/* ---------- OPENING SCREEN ---------- */
-
-#opening-screen {
-
-    position: fixed;
-    inset: 0;
-    z-index: 10;
-
-}
-
-
-.wood-background {
-
-    height: 100vh;
-    width: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background:
-    linear-gradient(
-    rgba(80,60,40,.25),
-    rgba(80,60,40,.25)
-    ),
+.wood-table{
+  height: 100%;
+  width: 100%;
+  background:
+    linear-gradient(rgba(80,60,40,.22), rgba(80,60,40,.22)),
     url("assets/images/wood-background.png");
-
-    background-size: cover;
-    background-position: center;
-
+  background-size: cover;
+  background-position: center;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-
-/* ---------- ENVELOPE ---------- */
-
-
-.envelope {
-
-    width: 340px;
-    height: 230px;
-
-    background: #F7F1E7;
-
-    position: relative;
-
-    box-shadow:
-    0 25px 50px rgba(0,0,0,.18);
-
+.envelope-wrapper{
+  position:relative;
 }
 
-
-.flap {
-
-    position: absolute;
-
-    top:0;
-    left:0;
-
-    width:100%;
-    height:50%;
-
-    background:#EEE5D8;
-
-    clip-path:
-    polygon(
-    0 0,
-    100% 0,
-    50% 100%
-    );
-
+.wax-seal{
+  position:absolute;
+  width:110px;
+  left:50%;
+  top:42%;
+  transform:translate(-50%,-50%);
+  z-index:5;
+  cursor:pointer;
+  transition:transform .35s ease;
 }
 
-
-.letter-preview {
-
-    position:absolute;
-
-    width:80%;
-    height:120px;
-
-    background:#FAF8F3;
-
-    left:10%;
-    bottom:20px;
-
+.wax-seal:hover{
+  transform:translate(-50%,-50%) scale(1.04);
 }
 
-
-
-/* ---------- WAX SEAL ---------- */
-
-
-#wax-seal {
-
-    position:absolute;
-
-    width:90px;
-    height:90px;
-
-    border-radius:50%;
-
-    background:#A9B8A5;
-
-    left:50%;
-    top:50%;
-
-    transform:
-    translate(-50%,-50%);
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    color:white;
-
-    font-family:
-    "Cormorant Garamond",
-    serif;
-
-    font-size:28px;
-
-    cursor:pointer;
-
-    box-shadow:
-    0 8px 20px rgba(0,0,0,.2);
-
+.envelope{
+  position:relative;
+  width:min(560px,88vw);
+  height:370px;
 }
 
-
-.tap-text {
-
-    color:white;
-
-    margin-top:35px;
-
-    letter-spacing:2px;
-
-    font-size:13px;
-
+.envelope-body{
+  position:absolute;
+  inset:0;
+  background:#fffdf8;
+  border-radius:8px;
+  box-shadow:0 30px 60px rgba(0,0,0,.22);
 }
 
-
-
-/* ---------- INVITATION ---------- */
-
-
-#invitation {
-
-    display:none;
-
-    background:
-    url("assets/images/paper-texture.png");
-
-    min-height:100vh;
-
+.envelope-flap{
+  position:absolute;
+  inset:0;
+  background:#fffaf2;
+  clip-path: polygon(0 0,100% 0,50% 58%);
+  transform-origin:top center;
+  z-index:2;
+  transition:transform 1s ease;
+  box-shadow:0 12px 20px rgba(0,0,0,.08);
 }
 
+/* Invitation */
 
-
-section {
-
-    max-width:1000px;
-
-    margin:auto;
-
-    padding:100px 40px;
-
+#invitation{
+  background: var(--ivory);
 }
 
-
-
-/* ---------- HERO ---------- */
-
-
-.hero {
-
-    display:grid;
-
-    grid-template-columns:1fr 1fr;
-
-    align-items:center;
-
-    gap:70px;
-
+.hero{
+  padding: 90px 20px 70px;
 }
 
-
-.hero h1 {
-
-    font-size:90px;
-
-    line-height:.9;
-
+.paper{
+  position:relative;
+  max-width:1200px;
+  margin:0 auto;
+  background:var(--paper);
+  border-radius:18px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.08);
 }
 
-
-.hero h1 span {
-
-    display:block;
-
-    font-size:55px;
-
+.paper-texture{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  opacity:.24;
+  pointer-events:none;
 }
 
-
-
-.eyebrow {
-
-    text-transform:uppercase;
-
-    letter-spacing:4px;
-
-    font-size:12px;
-
+.botanical-left{
+  position:absolute;
+  left:-40px;
+  top:70px;
+  width:200px;
+  opacity:.85;
 }
 
-
-.date {
-
-    font-size:22px;
-
+.botanical-right{
+  position:absolute;
+  right:-40px;
+  top:50px;
+  width:200px;
+  opacity:.85;
 }
 
-
-
-.hero-image img {
-
-    width:100%;
-
-    max-width:420px;
-
+.hero-grid{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
+  align-items:center;
+  padding:80px 70px 110px;
 }
 
-
-
-/* ---------- CONTENT ---------- */
-
-
-.content-section {
-
-    text-align:center;
-
+.eyebrow{
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  font-size:.78rem;
+  color:#7f786f;
+  margin-bottom:20px;
 }
 
-
-.content-section h2 {
-
-    font-size:55px;
-
-    margin-bottom:50px;
-
+.hero-copy h1{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(4rem,7vw,6.5rem);
+  line-height:.9;
+  font-weight:500;
+  margin-bottom:24px;
 }
 
+.hero-copy h1 span{
+  color:var(--champagne);
+  font-style:italic;
+}
 
-.details-grid {
+.hero-date{
+  font-family:'Cormorant Garamond', serif;
+  font-size:1.7rem;
+  color:#5b564f;
+  margin-bottom:22px;
+}
 
-    display:grid;
+.hero-intro{
+  max-width:440px;
+  line-height:1.9;
+  color:#4f4a44;
+}
 
-    grid-template-columns:
-    repeat(2,1fr);
+.hero-image img{
+  width:100%;
+  border-radius:14px;
+  display:block;
+  box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
 
+.pampas-left{
+  position:absolute;
+  left:-24px;
+  bottom:-12px;
+  width:240px;
+  opacity:.9;
+}
+
+.pampas-right{
+  position:absolute;
+  right:-24px;
+  bottom:-12px;
+  width:240px;
+  opacity:.9;
+}
+
+/* Sections */
+
+.section{
+  padding:110px 20px;
+}
+
+.content{
+  max-width:760px;
+  margin:0 auto;
+  text-align:center;
+}
+
+.section h2{
+  font-family:'Cormorant Garamond', serif;
+  font-size:3rem;
+  font-weight:500;
+  margin-bottom:18px;
+}
+
+.section-text{
+  line-height:1.95;
+  color:#57524b;
+  font-size:1.05rem;
+}
+
+.details{ background:#faf7f1; }
+.reception{ background:#fffdf9; }
+.accommodation{ background:#faf7f1; }
+.map{ background:#fffdf9; }
+.rsvp{ background:#faf7f1; }
+.closing{ background:#fffdf9; }
+
+/* Envelope Open State */
+
+.open .envelope-flap{
+  transform:rotateX(180deg);
+}
+
+.opening.hidden{
+  display:none;
+}
+
+/* Responsive */
+
+@media (max-width:900px){
+
+  .hero-grid{
+    grid-template-columns:1fr;
+    padding:70px 28px 100px;
     gap:40px;
+  }
 
-}
-
-
-.details-grid h3 {
-
-    font-size:25px;
-
-}
-
-
-
-/* ---------- MAP ---------- */
-
-
-.map-placeholder {
-
-    height:350px;
-
-    background:#eee;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    margin-bottom:30px;
-
-}
-
-
-
-#map-button {
-
-    text-decoration:none;
-
-    color:#494949;
-
-}
-
-
-
-/* ---------- RSVP ---------- */
-
-
-form {
-
-    max-width:500px;
-
-    margin:auto;
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:20px;
-
-}
-
-
-input,
-select,
-textarea {
-
-    padding:15px;
-
-    border:
-
-    1px solid #ddd;
-
-    background:white;
-
-    font-family:inherit;
-
-}
-
-
-textarea {
-
-    height:120px;
-
-}
-
-
-button {
-
-    padding:16px;
-
-    background:#A9B8A5;
-
-    color:white;
-
-    border:none;
-
-    cursor:pointer;
-
-}
-
-
-
-/* ---------- CLOSING ---------- */
-
-
-.closing {
-
+  .hero-copy{
     text-align:center;
+  }
 
-    padding-bottom:150px;
+  .hero-intro{
+    margin:0 auto;
+  }
 
+  .botanical-left,
+  .botanical-right{
+    width:140px;
+    opacity:.7;
+  }
+
+  .pampas-left,
+  .pampas-right{
+    width:150px;
+    opacity:.7;
+  }
+
+  .section{
+    padding:90px 20px;
+  }
+
+  .section h2{
+    font-size:2.5rem;
+  }
 }
 
+@media (max-width:600px){
 
-.closing h2 {
+  .envelope{
+    height:300px;
+  }
 
-    font-size:70px;
+  .wax-seal{
+    width:88px;
+  }
 
-}
+  .hero{
+    padding:60px 16px 50px;
+  }
 
+  .hero-grid{
+    padding:60px 20px 90px;
+  }
 
+  .hero-copy h1{
+    font-size:4rem;
+  }
 
-/* ---------- MOBILE ---------- */
+  .section h2{
+    font-size:2.2rem;
+  }
 
-
-@media(max-width:768px){
-
-
-.hero {
-
-    grid-template-columns:1fr;
-
-    text-align:center;
-
-}
-
-
-.hero h1 {
-
-    font-size:65px;
-
-}
-
-
-.details-grid {
-
-    grid-template-columns:1fr;
-
-}
-
-
-section {
-
-    padding:70px 25px;
-
-}
-
-
-.envelope {
-
-    width:290px;
-
-}
-
-
+  .section-text{
+    font-size:1rem;
+  }
 }
